@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Printing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
@@ -28,17 +29,45 @@ namespace PhotoBooth
         {
             InitializeComponent();
             VideoElement.Source = new Uri(Settings.Default.VideoSource);
-            VideoElement.MediaEnded += (sender, args) => {
+            VideoElement.MediaEnded += (sender, args) =>
+            {
                 VideoElement.Stop();
                 ShowWindow(_mainWindowsHandle, Maximized);
-                Thread.Sleep(10000);
-                ShowWindow(_mainWindowsHandle, Hide);
             };
             _photoBooth = Process.Start(Settings.Default.PhotoBoothExecPath);
             Thread.Sleep(5000);
             _mainWindowsHandle = _photoBooth.MainWindowHandle;
             ShowWindow(_mainWindowsHandle, Hide);
-            Closed += (sender, args) => _photoBooth.Kill();
+            Closed += (sender, args) =>
+            {
+                try
+                {
+                    if (!_photoBooth.HasExited)
+                        _photoBooth.Kill();
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            };
+
+            var printQueueMonitor = new PrintQueueMonitor(new LocalPrintServer().DefaultPrintQueue.FullName);
+            printQueueMonitor.Start();
+            printQueueMonitor.OnJobAdded += () =>
+            {
+                int timeToWait;
+                try
+                {
+                    timeToWait = int.Parse(Settings.Default.WaitingTime);
+                }
+                catch (Exception)
+                {
+                    timeToWait = 10000; // 10 Sec by default
+                }
+
+                Thread.Sleep(timeToWait);
+                ShowWindow(_mainWindowsHandle, Hide);
+            };
         }
 
         private void Play_OnClick(object sender, RoutedEventArgs e)

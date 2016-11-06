@@ -2,11 +2,14 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PhotoBooth.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="VideoSource" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\fperin\Documents\Visual Studio 2015\Projects\PhotoBooth\video.mpg</Value>
-    </Setting>
     <Setting Name="PhotoBoothExecPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files (x86)\Sparkbooth 4\Sparkbooth 4.exe</Value>
+    </Setting>
+    <Setting Name="VideoSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\hst_1.mpg</Value>
+    </Setting>
+    <Setting Name="WaitingTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

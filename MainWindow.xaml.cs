@@ -24,7 +24,6 @@ namespace PhotoBooth
         private readonly IntPtr _mainWindowsHandle;
         private readonly Process _photoBooth;
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +31,7 @@ namespace PhotoBooth
             VideoElement.MediaEnded += (sender, args) =>
             {
                 VideoElement.Stop();
+                PlayButton.Visibility = Visibility.Visible;
                 ShowWindow(_mainWindowsHandle, Maximized);
             };
             _photoBooth = Process.Start(Settings.Default.PhotoBoothExecPath);
@@ -73,6 +73,7 @@ namespace PhotoBooth
         private void Play_OnClick(object sender, RoutedEventArgs e)
         {
             VideoElement.Play();
+            PlayButton.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -5,17 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhotoBooth"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance  local:MainWindowViewModel}">
+        Title="Cabine Party" Background="Black" Height="350" Width="525" WindowStyle="None" WindowState="Maximized">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <MediaElement Name="VideoElement" LoadedBehavior="Manual" />
-        <StackPanel Grid.Row="1">
-            <WrapPanel HorizontalAlignment="Center">
-                <Button Click="Play_OnClick">Play</Button>
-            </WrapPanel>
+        <MediaElement Name="VideoElement" LoadedBehavior="Manual" HorizontalAlignment="Center" />
+        <StackPanel VerticalAlignment="Bottom" Margin="50" Width="100" Visibility="{Binding ButtonVisibility}">
+            <Button Name="PlayButton" Click="Play_OnClick">Play</Button>
         </StackPanel>
     </Grid>
 </Window>

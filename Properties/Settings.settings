@@ -11,5 +11,8 @@
     <Setting Name="WaitingTime" Type="System.String" Scope="User">
       <Value Profile="(Default)">10000</Value>
     </Setting>
+    <Setting Name="PhotoBoothProcessName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sparkbooth 4</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

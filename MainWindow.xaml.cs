@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Printing;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -34,6 +35,7 @@ namespace PhotoBooth
                 PlayButton.Visibility = Visibility.Visible;
                 ShowWindow(_mainWindowsHandle, Maximized);
             };
+            KillExistingPhotobooth();
             _photoBooth = Process.Start(Settings.Default.PhotoBoothExecPath);
             Thread.Sleep(5000);
             _mainWindowsHandle = _photoBooth.MainWindowHandle;
@@ -68,6 +70,21 @@ namespace PhotoBooth
                 Thread.Sleep(timeToWait);
                 ShowWindow(_mainWindowsHandle, Hide);
             };
+        }
+
+        private static void KillExistingPhotobooth()
+        {
+            try
+            {
+                foreach (var process in Process.GetProcessesByName(Settings.Default.PhotoBoothProcessName))
+                {
+                    process.Kill();
+                }
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void Play_OnClick(object sender, RoutedEventArgs e)

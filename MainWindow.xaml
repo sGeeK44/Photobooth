@@ -5,11 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhotoBooth"
         mc:Ignorable="d"
-        Title="Cabine Party" Background="Black" Height="350" Width="525" WindowStyle="None" WindowState="Maximized">
+        Title="Cabine Party" Background="Black" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized">
     <Grid>
         <MediaElement Name="VideoElement" LoadedBehavior="Manual" HorizontalAlignment="Center" />
-        <StackPanel VerticalAlignment="Bottom" Margin="50" Width="100" Visibility="{Binding ButtonVisibility}">
-            <Button Name="PlayButton" Click="Play_OnClick">Play</Button>
+        <StackPanel VerticalAlignment="Bottom" Margin="300" Visibility="{Binding ButtonVisibility}">
+            <Button Name="PlayButton" Click="Play_OnClick" Foreground="White" FontSize="48" FontStyle="Oblique">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Fill="Red" Height="200" Width="200" StrokeThickness="5" Stroke="White"/>
+                            <ContentPresenter Margin="0,0,8,8" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Content>Play</Button.Content>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

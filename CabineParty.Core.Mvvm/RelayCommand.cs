@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace CabineParty.ShowRoomApp
+namespace CabineParty.Core.Mvvm
 {
     /// <summary>
     /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates.

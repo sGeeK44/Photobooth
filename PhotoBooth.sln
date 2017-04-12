@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowRoomApp", "ShowRoomApp.csproj", "{EA45EF00-B2CD-4225-BCD8-9F3A249162D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowRoomApp", "ShowRoomApp\ShowRoomApp.csproj", "{EA45EF00-B2CD-4225-BCD8-9F3A249162D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CabineParty.Core.Mvvm", "CabineParty.Core.Mvvm\CabineParty.Core.Mvvm.csproj", "{6A9E9D11-33A6-40DE-97F2-6024EB9A27B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EA45EF00-B2CD-4225-BCD8-9F3A249162D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA45EF00-B2CD-4225-BCD8-9F3A249162D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA45EF00-B2CD-4225-BCD8-9F3A249162D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A9E9D11-33A6-40DE-97F2-6024EB9A27B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9E9D11-33A6-40DE-97F2-6024EB9A27B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9E9D11-33A6-40DE-97F2-6024EB9A27B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9E9D11-33A6-40DE-97F2-6024EB9A27B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

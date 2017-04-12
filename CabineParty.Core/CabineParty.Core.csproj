@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mvvm\RelayCommand.cs" />
+    <Compile Include="Mvvm\ViewModel.cs" />
     <Compile Include="PrintQueueMonitor.cs" />
     <Compile Include="PrintSpoolAPI.cs" />
     <Compile Include="ProcessHelper.cs" />

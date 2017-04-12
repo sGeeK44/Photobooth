@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CabineParty.UnitCodeApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PhotoBoothExecPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Sparkbooth 4\Sparkbooth 4.exe</Value>
+    </Setting>
+    <Setting Name="VideoSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\hst_1.mpg</Value>
+    </Setting>
+    <Setting Name="WaitingTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="PhotoBoothProcessName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sparkbooth 4</Value>
+    </Setting>
+    <Setting Name="BackgroundColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FFDFD991</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

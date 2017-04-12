@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowRoomApp", "ShowRoomApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CabineParty.Core", "CabineParty.Core\CabineParty.Core.csproj", "{FF813D35-9342-42AF-B654-5EA33BD424F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitCodeApp", "UnitCodeApp\UnitCodeApp.csproj", "{A833EEA4-EDAE-4BC1-B477-B00A30CFCFBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FF813D35-9342-42AF-B654-5EA33BD424F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF813D35-9342-42AF-B654-5EA33BD424F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF813D35-9342-42AF-B654-5EA33BD424F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A833EEA4-EDAE-4BC1-B477-B00A30CFCFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A833EEA4-EDAE-4BC1-B477-B00A30CFCFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A833EEA4-EDAE-4BC1-B477-B00A30CFCFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A833EEA4-EDAE-4BC1-B477-B00A30CFCFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,7 @@ using System.Printing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
+using CabineParty.Core;
 using CabineParty.ShowRoomApp.Properties;
 
 namespace CabineParty.ShowRoomApp

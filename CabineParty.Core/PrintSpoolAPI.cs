@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-namespace CabineParty.ShowRoomApp
+namespace CabineParty.Core
 {
     public enum JOBCONTROL
     {

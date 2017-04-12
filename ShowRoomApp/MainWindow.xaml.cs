@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Printing;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using CabineParty.Core;
+using CabineParty.Core.Windows;
 using CabineParty.ShowRoomApp.Properties;
 
 namespace CabineParty.ShowRoomApp
@@ -14,45 +14,33 @@ namespace CabineParty.ShowRoomApp
     /// </summary>
     public partial class MainWindow
     {
-        [DllImport("user32.dll")]
-        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-        private const int Hide = 0;
-        private const int Minimized = 6;
-        private const int Maximized = 3;
-        private const int Show = 5;
-
-        private readonly IntPtr _mainWindowsHandle;
-        private readonly Process _photoBooth;
+        private WindowsManager _mainWindows;
+        private Process _photoBooth;
 
         public MainWindow()
         {
             InitializeComponent();
-            VideoElement.Source = new Uri(Settings.Default.VideoSource);
-            VideoElement.MediaEnded += (sender, args) =>
-            {
-                VideoElement.Stop();
-                PlayButton.Visibility = Visibility.Visible;
-                ShowWindow(_mainWindowsHandle, Maximized);
-            };
-            KillExistingPhotobooth();
-            _photoBooth = Process.Start(Settings.Default.PhotoBoothExecPath);
-            Thread.Sleep(5000);
-            _mainWindowsHandle = _photoBooth.MainWindowHandle;
-            ShowWindow(_mainWindowsHandle, Hide);
-            Closed += (sender, args) =>
-            {
-                try
-                {
-                    if (!_photoBooth.HasExited)
-                        _photoBooth.Kill();
-                }
-                catch (Exception)
-                {
-                    // ignored
-                }
-            };
+            StartPhotobooth();
+            Closed += ExitPhotobooth;
+            SetupVideo();
+            SetupPrinter();
+        }
 
+        private void ExitPhotobooth(object sender, EventArgs args)
+        {
+            try
+            {
+                if (!_photoBooth.HasExited)
+                    _photoBooth.Kill();
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
+
+        private void SetupPrinter()
+        {
             var printQueueMonitor = new PrintQueueMonitor(new LocalPrintServer().DefaultPrintQueue.FullName);
             printQueueMonitor.Start();
             printQueueMonitor.OnJobAdded += () =>
@@ -68,23 +56,27 @@ namespace CabineParty.ShowRoomApp
                 }
 
                 Thread.Sleep(timeToWait);
-                ShowWindow(_mainWindowsHandle, Hide);
+                _mainWindows.Hide();
             };
         }
 
-        private static void KillExistingPhotobooth()
+        private void SetupVideo()
         {
-            try
+            VideoElement.Source = new Uri(Settings.Default.VideoSource);
+            VideoElement.MediaEnded += (sender, args) =>
             {
-                foreach (var process in Process.GetProcessesByName(Settings.Default.PhotoBoothProcessName))
-                {
-                    process.Kill();
-                }
-            }
-            catch
-            {
-                // ignored
-            }
+                VideoElement.Stop();
+                PlayButton.Visibility = Visibility.Visible;
+                _mainWindows.Show();
+            };
+        }
+
+        private void StartPhotobooth()
+        {
+            ProcessHelper.KillAll(Settings.Default.PhotoBoothProcessName);
+            _photoBooth = ProcessHelper.Start(Settings.Default.PhotoBoothExecPath);
+            _mainWindows = new WindowsManager(_photoBooth);
+            _mainWindows.Hide();
         }
 
         private void Play_OnClick(object sender, RoutedEventArgs e)

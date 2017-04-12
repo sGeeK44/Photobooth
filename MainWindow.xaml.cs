@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Printing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
-using PhotoBooth.Properties;
+using CabineParty.ShowRoomApp.Properties;
 
-namespace PhotoBooth
+namespace CabineParty.ShowRoomApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Printing;
-using System.Windows;
 using CabineParty.Core;
 using CabineParty.Core.Windows;
 using CabineParty.UnitCodeApp.Properties;

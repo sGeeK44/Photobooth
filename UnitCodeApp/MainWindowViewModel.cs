@@ -8,6 +8,7 @@ namespace CabineParty.UnitCodeApp
     public class MainWindowViewModel : ViewModel
     {
         private readonly Color _defaultBackGroundColor = Colors.Beige;
+        private string _inputCode;
 
         public Brush BackgroundColor
         {
@@ -26,6 +27,12 @@ namespace CabineParty.UnitCodeApp
                     return new SolidColorBrush(_defaultBackGroundColor);
                 }
             }
+        }
+
+        public string InputCode
+        {
+            get { return _inputCode; }
+            set { Set(() => InputCode, ref _inputCode, value); }
         }
     }
 }

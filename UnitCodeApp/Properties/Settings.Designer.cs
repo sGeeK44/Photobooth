@@ -82,5 +82,29 @@ namespace CabineParty.UnitCodeApp.Properties {
                 this["BackgroundColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public string CodeLength {
+            get {
+                return ((string)(this["CodeLength"]));
+            }
+            set {
+                this["CodeLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DefaultBackgroundPicture.png")]
+        public string BackgroundPicture {
+            get {
+                return ((string)(this["BackgroundPicture"]));
+            }
+            set {
+                this["BackgroundPicture"] = value;
+            }
+        }
     }
 }

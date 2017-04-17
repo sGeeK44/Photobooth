@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:unitCodeApp="clr-namespace:CabineParty.UnitCodeApp"
         mc:Ignorable="d"
-        Title="Cabine Party" Background="{Binding BackgroundColor}" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized">
+        Title="Cabine Party" Height="1080" Width="1920" WindowStyle="None" WindowState="Maximized">
     <Window.DataContext>
         <unitCodeApp:MainWindowViewModel />
     </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/DefaultBackgroundPicture.png"/>
+    </Window.Background>
     <Window.Resources>
         <Style x:Key="BaseButtonStyle" TargetType="Button">
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="FontSize" Value="30" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Focusable" Value="false" />
             <Setter Property="Margin" Value="10" />
@@ -28,18 +30,22 @@
             </Setter>
         </Style>
         <Style x:Key="ValidateButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="FontSize" Value="30" />
             <Setter Property="Background" Value="ForestGreen" />
             <Setter Property="Foreground" Value="White" />
         </Style>
         <Style x:Key="CancelButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="FontSize" Value="30" />
             <Setter Property="Background" Value="DarkRed" />
             <Setter Property="Foreground" Value="White" />
         </Style>
         <Style x:Key="CorrectButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="FontSize" Value="30" />
             <Setter Property="Background" Value="DarkOrange" />
             <Setter Property="Foreground" Value="White" />
         </Style>
         <Style x:Key="NumberButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="FontSize" Value="80" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="White" />
         </Style>
@@ -60,19 +66,19 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="0" Grid.Column="0">7</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="0" Grid.Column="1">8</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="0" Grid.Column="2">9</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="1" Grid.Column="0">4</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="1" Grid.Column="1">5</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="1" Grid.Column="2">6</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="2" Grid.Column="0">1</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="2" Grid.Column="1">2</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="2" Grid.Column="2">3</Button>
-            <Button Style="{StaticResource CancelButtonStyle}" Grid.Row="3" Grid.Column="0">Annuler</Button>
-            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="3" Grid.Column="1">0</Button>
-            <Button Style="{StaticResource CorrectButtonStyle}" Grid.Row="3" Grid.Column="2">Corriger</Button>
-            <Button Style="{StaticResource ValidateButtonStyle}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">Valider</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="0" Grid.Column="0" Command="{Binding AddDigit}" CommandParameter="7">7</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="0" Grid.Column="1" Command="{Binding AddDigit}" CommandParameter="8">8</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="0" Grid.Column="2" Command="{Binding AddDigit}" CommandParameter="9">9</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="1" Grid.Column="0" Command="{Binding AddDigit}" CommandParameter="4">4</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="1" Grid.Column="1" Command="{Binding AddDigit}" CommandParameter="5">5</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="1" Grid.Column="2" Command="{Binding AddDigit}" CommandParameter="6">6</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="2" Grid.Column="0" Command="{Binding AddDigit}" CommandParameter="1">1</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="2" Grid.Column="1" Command="{Binding AddDigit}" CommandParameter="2">2</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="2" Grid.Column="2" Command="{Binding AddDigit}" CommandParameter="3">3</Button>
+            <Button Style="{StaticResource CancelButtonStyle}" Grid.Row="3" Grid.Column="0" Command="{Binding Cancel}">Annuler</Button>
+            <Button Style="{StaticResource NumberButtonStyle}" Grid.Row="3" Grid.Column="1" Command="{Binding AddDigit}" CommandParameter="0">0</Button>
+            <Button Style="{StaticResource CorrectButtonStyle}" Grid.Row="3" Grid.Column="2" Command="{Binding Correct}">Corriger</Button>
+            <Button Style="{StaticResource ValidateButtonStyle}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Command="{Binding Validate}">Valider</Button>
         </Grid>
     </DockPanel>
 </Window>

@@ -17,5 +17,11 @@
     <Setting Name="BackgroundColor" Type="System.String" Scope="User">
       <Value Profile="(Default)">#FFDFD991</Value>
     </Setting>
+    <Setting Name="CodeLength" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="BackgroundPicture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultBackgroundPicture.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

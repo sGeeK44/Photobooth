@@ -37,30 +37,6 @@ namespace CabineParty.UnitCodeApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\fperin\\Documents\\hst_1.mpg")]
-        public string VideoSource {
-            get {
-                return ((string)(this["VideoSource"]));
-            }
-            set {
-                this["VideoSource"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
-        public string WaitingTime {
-            get {
-                return ((string)(this["WaitingTime"]));
-            }
-            set {
-                this["WaitingTime"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Sparkbooth 4")]
         public string PhotoBoothProcessName {
             get {

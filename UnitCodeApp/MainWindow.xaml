@@ -53,9 +53,8 @@
         </Style>
     </Window.Resources>
     <DockPanel>
-        <Border DockPanel.Dock="Top" Height="100"  Width="500" Margin="0, 100, 0, 0" BorderBrush="White" BorderThickness="3" CornerRadius="9">
-            <TextBox MaxLength="8" HorizontalAlignment="Center"
-                 TextAlignment="Center" FontSize="50" Background="Transparent" BorderThickness="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="White" Text="{Binding InputCode}" />
+        <Border DockPanel.Dock="Top" Height="120"  Width="500" Margin="0, 70, 0, 0" BorderBrush="White" BorderThickness="3" CornerRadius="9">
+            <TextBox Text="{Binding InputCode}"  MaxLength="8" FontSize="70" Background="Transparent" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" />
         </Border>
         <Grid Width="500" Margin="50">
             <Grid.RowDefinitions>

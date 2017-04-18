@@ -23,5 +23,11 @@
     <Setting Name="BackgroundPicture" Type="System.String" Scope="User">
       <Value Profile="(Default)">DefaultBackgroundPicture.png</Value>
     </Setting>
+    <Setting Name="ValidCodeFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\Code.txt</Value>
+    </Setting>
+    <Setting Name="UsedCodeFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\Used.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

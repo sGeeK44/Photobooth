@@ -106,5 +106,29 @@ namespace CabineParty.UnitCodeApp.Properties {
                 this["BackgroundPicture"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\fperin\\Documents\\Code.txt")]
+        public string ValidCodeFilePath {
+            get {
+                return ((string)(this["ValidCodeFilePath"]));
+            }
+            set {
+                this["ValidCodeFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\fperin\\Documents\\Used.txt")]
+        public string UsedCodeFilePath {
+            get {
+                return ((string)(this["UsedCodeFilePath"]));
+            }
+            set {
+                this["UsedCodeFilePath"] = value;
+            }
+        }
     }
 }

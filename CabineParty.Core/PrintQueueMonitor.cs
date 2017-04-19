@@ -4,7 +4,7 @@ using System.Printing;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace PhotoBooth
+namespace CabineParty.Core
 {
     public class PrintQueueMonitor
     {

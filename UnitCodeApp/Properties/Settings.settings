@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CabineParty.UnitCodeApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PhotoBoothExecPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Sparkbooth 4\Sparkbooth 4.exe</Value>
+    </Setting>
+    <Setting Name="PhotoBoothProcessName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sparkbooth 4</Value>
+    </Setting>
+    <Setting Name="BackgroundColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FFDFD991</Value>
+    </Setting>
+    <Setting Name="CodeLength" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="BackgroundPicture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultBackgroundPicture.png</Value>
+    </Setting>
+    <Setting Name="ValidCodeFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\Code.txt</Value>
+    </Setting>
+    <Setting Name="UsedCodeFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\Used.txt</Value>
+    </Setting>
+    <Setting Name="PhotoboothStatusFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\sparkbooth-status.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

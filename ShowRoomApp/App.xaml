@@ -1,4 +1,4 @@
-﻿<Application x:Class="PhotoBooth.App"
+﻿<Application x:Class="CabineParty.ShowRoomApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml"

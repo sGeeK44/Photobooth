@@ -23,5 +23,8 @@
     <Setting Name="UsedCodeFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Users\fperin\Documents\Used.txt</Value>
     </Setting>
+    <Setting Name="PhotoboothStatusFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\fperin\Documents\sparkbooth-status.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

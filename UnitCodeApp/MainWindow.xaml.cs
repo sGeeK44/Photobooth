@@ -15,6 +15,7 @@ namespace CabineParty.UnitCodeApp
         public MainWindow()
         {
             InitializeComponent();
+            ((MainWindowViewModel)DataContext).StartPhotobooth();
             Closed += ((MainWindowViewModel)DataContext).Closed;
         }
     }

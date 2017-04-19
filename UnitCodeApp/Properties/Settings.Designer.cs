@@ -106,5 +106,17 @@ namespace CabineParty.UnitCodeApp.Properties {
                 this["UsedCodeFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\fperin\\Documents\\sparkbooth-status.txt")]
+        public string PhotoboothStatusFilePath {
+            get {
+                return ((string)(this["PhotoboothStatusFilePath"]));
+            }
+            set {
+                this["PhotoboothStatusFilePath"] = value;
+            }
+        }
     }
 }

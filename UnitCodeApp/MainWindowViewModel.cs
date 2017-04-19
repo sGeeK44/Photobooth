@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Printing;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Input;
 using System.Windows.Media;
 using CabineParty.Core;
@@ -18,6 +20,7 @@ namespace CabineParty.UnitCodeApp
         private const int DefaultCodeLength = 8;
         private const string DefaultValidCodeFilePath = "ValidCode.txt";
         private const string DefaultUsedCodeFilePath = "UsedCode.txt";
+        private const string EndSessionValue = "SESSION_COMPLETE";
         private readonly Color _defaultBackGroundColor = Colors.Beige;
         private WindowsManager _mainWindows;
         private Process _photoBooth;
@@ -26,6 +29,7 @@ namespace CabineParty.UnitCodeApp
 
         public MainWindowViewModel()
         {
+            PhotoboothStatusFilePath = Settings.Default.PhotoboothStatusFilePath;
             CodeColor = ValidCodeColor;
             AddDigit = new RelayCommand(_ => InputCode += _, _ => string.IsNullOrEmpty(InputCode) || InputCode.Length < CodeLength);
             Cancel = new RelayCommand(_ =>
@@ -34,9 +38,6 @@ namespace CabineParty.UnitCodeApp
             }, _ => !string.IsNullOrEmpty(InputCode));
             Correct = new RelayCommand(_ => InputCode = InputCode.Substring(0, InputCode.Length - 1), _ => !string.IsNullOrEmpty(InputCode));
             Validate = new RelayCommand(_ => ValidateCode(), _ => !string.IsNullOrEmpty(InputCode) && InputCode.Length == CodeLength);
-
-            StartPhotobooth();
-            SetupPrinter();
         }
 
         public Color ValidCodeColor => Colors.White;
@@ -94,7 +95,8 @@ namespace CabineParty.UnitCodeApp
 
             MarkCodeAsUsed();
             InputCode = string.Empty;
-            _mainWindows.Show();
+            DisplayPhotobooth();
+            MonitorEnOfSession(HidePhotobooth);
         }
 
         private void MarkCodeAsUsed()
@@ -167,6 +169,16 @@ namespace CabineParty.UnitCodeApp
                  : DefaultCodeLength;
         }
 
+        private void DisplayPhotobooth()
+        {
+            _mainWindows.Show();
+        }
+
+        private void HidePhotobooth()
+        {
+            _mainWindows.Hide();
+        }
+
         private void ExitPhotobooth()
         {
             try
@@ -180,18 +192,45 @@ namespace CabineParty.UnitCodeApp
             }
         }
 
-        private void SetupPrinter()
+        public void MonitorEnOfSession(Action callback)
         {
-            var printQueueMonitor = new PrintQueueMonitor(new LocalPrintServer().DefaultPrintQueue.FullName);
-            printQueueMonitor.Start();
-            printQueueMonitor.OnJobAdded += () =>
+            var endSession = new Regex(EndSessionValue);
+            var directory = Path.GetDirectoryName(PhotoboothStatusFilePath);
+            var fileName = Path.GetFileName(PhotoboothStatusFilePath);
+            var fileSystemWatcher = new FileSystemWatcher(directory)
             {
-                // TODO add log checker.
-                _mainWindows.Hide();
+                Filter = fileName,
+                EnableRaisingEvents = true
+            };
+            fileSystemWatcher.Changed += (sender, args) =>
+            {
+                if (!endSession.IsMatch(GetPhotoboothStatus()))
+                    return;
+
+                fileSystemWatcher.EnableRaisingEvents = false;
+                fileSystemWatcher.Dispose();
+                callback();
             };
         }
 
-        private void StartPhotobooth()
+        public string PhotoboothStatusFilePath { get; set; }
+
+        private string GetPhotoboothStatus()
+        {
+            while (true)
+            {
+                try
+                {
+                    return File.ReadAllText(PhotoboothStatusFilePath);
+                }
+                catch (IOException)
+                {
+                    Thread.Sleep(500);
+                }
+            }
+        }
+
+        public void StartPhotobooth()
         {
             ProcessHelper.KillAll(Settings.Default.PhotoBoothProcessName);
             _photoBooth = ProcessHelper.Start(Settings.Default.PhotoBoothExecPath);
